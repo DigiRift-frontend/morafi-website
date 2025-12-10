@@ -246,19 +246,7 @@ function initContactForm() {
             submitBtn.textContent = 'Wysyłanie...';
             submitBtn.disabled = true;
 
-            // Simulate form submission (replace with actual endpoint)
-            setTimeout(function() {
-                // Reset form
-                form.reset();
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-
-                // Show success message
-                showFormMessage('success', 'Dziękujemy za wiadomość! Odpowiemy najszybciej jak to możliwe.');
-            }, 1500);
-
-            // For actual implementation, use fetch API:
-            /*
+            // Send form data to backend
             fetch('/api/contact', {
                 method: 'POST',
                 headers: {
@@ -266,19 +254,25 @@ function initContactForm() {
                 },
                 body: JSON.stringify(data)
             })
-            .then(response => response.json())
-            .then(result => {
-                form.reset();
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(result) {
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
-                showFormMessage('success', 'Dziękujemy za wiadomość!');
+
+                if (result.success) {
+                    form.reset();
+                    showFormMessage('success', result.message);
+                } else {
+                    showFormMessage('error', result.message);
+                }
             })
-            .catch(error => {
+            .catch(function(error) {
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
                 showFormMessage('error', 'Wystąpił błąd. Spróbuj ponownie później.');
             });
-            */
         });
     }
 }

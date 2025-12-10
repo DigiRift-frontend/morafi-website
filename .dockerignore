@@ -2,6 +2,6 @@
 .git
 .gitignore
 *.md
-docker-compose.yml
-nixpacks.toml
-nixpacks-nginx.conf
+node_modules
+.env
+.env.local
