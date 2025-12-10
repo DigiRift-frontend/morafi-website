@@ -4,14 +4,5 @@
 [phases.setup]
 nixPkgs = ["nginx"]
 
-[phases.install]
-cmds = ["mkdir -p /var/www/html"]
-
-[phases.build]
-cmds = [
-    "cp -r . /var/www/html/",
-    "rm -f /var/www/html/Dockerfile /var/www/html/docker-compose.yml /var/www/html/nixpacks.toml /var/www/html/.DS_Store"
-]
-
 [start]
-cmd = "nginx -c /var/www/html/nixpacks-nginx.conf -g 'daemon off;'"
+cmd = "nginx -c /app/nixpacks-nginx.conf -g 'daemon off;'"
