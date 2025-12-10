@@ -907,13 +907,11 @@ h4 { font-size: 1.25rem; }
 .footer-contact p {
     color: rgba(255, 255, 255, 0.7);
     margin-bottom: var(--spacing-md);
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 .footer-contact p strong {
-    color: var(--color-accent);
-    display: block;
-    margin-bottom: 4px;
+    color: white;
 }
 
 .footer-contact a {
