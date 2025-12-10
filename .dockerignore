@@ -1,0 +1,7 @@
+.DS_Store
+.git
+.gitignore
+*.md
+docker-compose.yml
+nixpacks.toml
+nixpacks-nginx.conf
