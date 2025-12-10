@@ -3,6 +3,10 @@
 
 FROM nginx:alpine
 
+# Standard-Konfiguration entfernen
+RUN rm -rf /etc/nginx/conf.d/*
+RUN rm -rf /usr/share/nginx/html/*
+
 # Nginx Konfiguration kopieren
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
@@ -15,6 +19,9 @@ COPY images/ /usr/share/nginx/html/images/
 
 # Port 80 freigeben
 EXPOSE 80
+
+# Healthcheck
+HEALTHCHECK --interval=30s --timeout=3s CMD wget -q --spider http://localhost/ || exit 1
 
 # Nginx starten
 CMD ["nginx", "-g", "daemon off;"]
