@@ -1,8 +1,0 @@
-# Nixpacks Konfiguration für Coolify
-# Statische Website mit Nginx
-
-[phases.setup]
-nixPkgs = ["nginx"]
-
-[start]
-cmd = "nginx -c /app/nixpacks-nginx.conf -g 'daemon off;'"
