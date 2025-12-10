@@ -508,7 +508,9 @@ h4 { font-size: 1.25rem; }
 }
 
 .about-image {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .about-image img {
@@ -1104,14 +1106,21 @@ textarea:focus {
 
     .about-image {
         margin-bottom: var(--spacing-xl);
+        display: flex;
+        justify-content: center;
     }
 
     .about-image img {
         max-width: 220px;
+        margin: 0 auto;
+    }
+
+    .about-text {
+        text-align: left;
     }
 
     .about-features {
-        justify-content: center;
+        justify-content: flex-start;
     }
 
     /* Contact Section */
